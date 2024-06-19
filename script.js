@@ -85,6 +85,16 @@ masterPlay.addEventListener('click', () => {
         masterPlay.classList.add('fa-play-circle');
         gif.style.opacity = 0;
     }
+    const playIcons = document.querySelectorAll('.songItemPLay');
+    playIcons.forEach((icon, i) => {
+        if (audioElement.paused || songIndex !== i) {
+            icon.classList.remove('fa-pause-circle');
+            icon.classList.add('fa-play-circle');
+        } else {
+            icon.classList.remove('fa-play-circle');
+            icon.classList.add('fa-pause-circle');
+        }
+    });
 });
 
 // Event listener for updating the progress bar as the song plays
